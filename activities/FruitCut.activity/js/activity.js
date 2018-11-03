@@ -12,6 +12,19 @@ define(["sugar-web/activity/activity", "sugar-web/env", "webL10n"], function (ac
 			var defaultLanguage = (typeof chrome != 'undefined' && chrome.app && chrome.app.runtime) ? chrome.i18n.getUILanguage() : navigator.language;
 			var language = environment.user ? environment.user.language : defaultLanguage;
 			webL10n.language.code = language;
+
+			// Load from datatore
+			if (!environment.objectId) {
+				console.log("New instance");
+			} else {
+				activity.getDatastoreObject().loadAsText(function (error, metadata, data) {
+					if (error == null && data != null) {
+						fruitKilled = Number(data);
+						document.querySelector('#killedStat').innerHTML = fruitKilled;
+						document.querySelector('#resume-note').style.display = 'block';
+					}
+				});
+			}
 		});
 
 		var fruitKilled = 0;
@@ -39,6 +52,8 @@ define(["sugar-web/activity/activity", "sugar-web/env", "webL10n"], function (ac
 
 		var gameOver = function (event) {
 			console.log('Game Over!');
+			fruitKilled = 0;
+			document.querySelector('#killedStat').innerHTML = fruitKilled;
 			document.querySelector("#gameOver").style.display = 'block';
 			var fruitBox = document.getElementById("fruitBox");
 			while (fruitBox.firstChild) {
@@ -71,8 +86,22 @@ define(["sugar-web/activity/activity", "sugar-web/env", "webL10n"], function (ac
 			addFruitWrapper();
 		}
 
+		var saveGameState = function (event) {
+			console.log("writing...");
+			activity.getDatastoreObject().setDataAsText(fruitKilled);
+			activity.getDatastoreObject().save(function (error) {
+				if (error === null) {
+					console.log("write done.");
+				} else {
+					console.log("write failed.");
+				}
+			});
+		}
+
 		// Handle click on start
 		document.getElementById("start-button").addEventListener('click', startGame);
+		// Save in Journal on Stop
+		document.getElementById("stop-button").addEventListener('click', saveGameState);
 
 		// Process localize event
 		window.addEventListener("localized", function () {
