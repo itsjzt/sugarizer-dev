@@ -78,7 +78,6 @@ define(["sugar-web/activity/activity", "sugar-web/env", "webL10n"], function (ac
 		}
 
 		var startGame = function (event) {
-			fruitKilled = 0;
 			var fruitBox = document.getElementById("fruitBox");
 			while (fruitBox.firstChild) {
 				fruitBox.removeChild(fruitBox.firstChild);
