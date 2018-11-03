@@ -1,10 +1,25 @@
-define(["sugar-web/activity/activity", "sugar-web/env"], function (activity, env) {
+define(["sugar-web/activity/activity", "sugar-web/env", "webL10n"], function (activity, env, webL10n) {
 
 	// Manipulate the DOM only when it is ready.
 	requirejs(['domReady!'], function (doc) {
 
 		// Initialize the activity.
 		activity.setup();
+
+		// env.getEnvironment(function (err, environment) {
+		// 	currentenv = environment;
+
+		// 	// Set current language to Sugarizer
+		// 	var defaultLanguage = (typeof chrome != 'undefined' && chrome.app && chrome.app.runtime) ? chrome.i18n.getUILanguage() : navigator.language;
+		// 	var language = environment.user ? environment.user.language : defaultLanguage;
+		// 	webL10n.language.code = ['en'];
+		// });
+
+		// // localization
+		// console.log(webL10n.language.code);
+		// document.querySelector("#tutorialMsg").innerHTML = webL10n.get("tutorialMsg");
+		// document.querySelector("#fruitStatMsg").innerHTML = webL10n.get("fruitStatMsg");
+		// document.querySelector("#gameOverMsg").innerHTML = webL10n.get("gameOverMsg");
 
 		var fruitKilled = 0;
 
