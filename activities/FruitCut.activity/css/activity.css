@@ -8,10 +8,13 @@
 
 .fruit {
   position: absolute;
-  background: #000;
   height: 50px;
   width: 50px;
-  animation: move-fruit 4s;
+  animation: move-fruit 3.5s;
+}
+
+.orange {
+  background-image: url(../icons/orange.svg);
 }
 
 @keyframes move-fruit {

@@ -47,12 +47,17 @@ define(["sugar-web/activity/activity", "sugar-web/env", "webL10n"], function (ac
 		var gameOver = function (event) {
 			console.log('Game Over!');
 			document.querySelector("#gameOver").style.display = 'block';
+			var fruitBox = document.getElementById("fruitBox");
+			while (fruitBox.firstChild) {
+				fruitBox.removeChild(fruitBox.firstChild);
+			}
 		}
 
 		var addFruit = function () {
 			var fruit = document.createElement("div");
 			fruit.id = "fruit";
-			fruit.className = "fruit";
+			fruit.classList.add("fruit");
+			fruit.classList.add("orange");
 			fruit.style.left = `${Math.floor(Math.random() * 90)}%`
 			fruit.addEventListener('click', killFruit);
 			fruit.addEventListener("mouseleave", killFruit);
@@ -64,15 +69,17 @@ define(["sugar-web/activity/activity", "sugar-web/env", "webL10n"], function (ac
 			document.querySelector("#killedStat").innerHTML = fruitKilled;
 		}
 
-		// Handle click on start
-		document.getElementById("start-button").addEventListener('click', function (event) {
+		var startGame = function (event) {
 			fruitKilled = 0;
 			var fruitBox = document.getElementById("fruitBox");
 			while (fruitBox.firstChild) {
 				fruitBox.removeChild(fruitBox.firstChild);
 			}
 			addFruitWrapper();
-		});
+		}
+
+		// Handle click on start
+		document.getElementById("start-button").addEventListener('click', startGame);
 
 	});
 
