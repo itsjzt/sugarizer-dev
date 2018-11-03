@@ -1,0 +1,6 @@
+[Activity]
+name = Task List
+activity_version = 1
+bundle_id = org.sugarlabs.TaskList
+exec = sugar-activity-web
+icon = activity-icon

@@ -1,0 +1,14 @@
+<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd' [
+	<!ENTITY stroke_color "#010101">
+	<!ENTITY fill_color "#FFFFFF">
+]>
+<svg width="640px" height="480px" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <rect fill="&fill_color;" stroke-width="5" x="197" y="234" width="39" height="41" id="svg_1" stroke="&stroke_color;"/>
+  <rect fill="&fill_color;" stroke-width="5" x="197" y="165" width="39" height="41" stroke="&stroke_color;" id="svg_7"/>
+  <line stroke="&stroke_color;" fill="none" stroke-width="50" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="257" y1="255" x2="375.00001" y2="255" id="svg_13"/>
+  <line id="svg_2" stroke="&stroke_color;" fill="none" stroke-width="50" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="257" y1="187" x2="375.00001" y2="187"/>
+ </g>
+</svg>
