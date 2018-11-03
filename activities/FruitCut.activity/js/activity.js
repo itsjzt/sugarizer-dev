@@ -6,20 +6,13 @@ define(["sugar-web/activity/activity", "sugar-web/env", "webL10n"], function (ac
 		// Initialize the activity.
 		activity.setup();
 
-		// env.getEnvironment(function (err, environment) {
-		// 	currentenv = environment;
-
-		// 	// Set current language to Sugarizer
-		// 	var defaultLanguage = (typeof chrome != 'undefined' && chrome.app && chrome.app.runtime) ? chrome.i18n.getUILanguage() : navigator.language;
-		// 	var language = environment.user ? environment.user.language : defaultLanguage;
-		// 	webL10n.language.code = ['en'];
-		// });
-
-		// // localization
-		// console.log(webL10n.language.code);
-		// document.querySelector("#tutorialMsg").innerHTML = webL10n.get("tutorialMsg");
-		// document.querySelector("#fruitStatMsg").innerHTML = webL10n.get("fruitStatMsg");
-		// document.querySelector("#gameOverMsg").innerHTML = webL10n.get("gameOverMsg");
+		env.getEnvironment(function (err, environment) {
+			currentenv = environment;
+			// Set current language to Sugarizer
+			var defaultLanguage = (typeof chrome != 'undefined' && chrome.app && chrome.app.runtime) ? chrome.i18n.getUILanguage() : navigator.language;
+			var language = environment.user ? environment.user.language : defaultLanguage;
+			webL10n.language.code = language;
+		});
 
 		var fruitKilled = 0;
 
@@ -81,6 +74,13 @@ define(["sugar-web/activity/activity", "sugar-web/env", "webL10n"], function (ac
 		// Handle click on start
 		document.getElementById("start-button").addEventListener('click', startGame);
 
+		// Process localize event
+		window.addEventListener("localized", function () {
+			document.querySelector("#tutorialMsg").innerHTML = webL10n.get("tutorialMsg");
+			document.querySelector("#fruitStatMsg").innerHTML = webL10n.get("fruitStatMsg");
+			document.querySelector("#gameOverMsg").innerHTML = webL10n.get("gameOverMsg");
+			document.querySelector("#start-button").setAttribute('title', webL10n.get("startGame"));
+		});
 	});
 
 });
