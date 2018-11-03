@@ -1,6 +1,6 @@
 [Activity]
-name = Task List
+name = Fruit Cut
 activity_version = 1
-bundle_id = org.sugarlabs.TaskList
+bundle_id = org.sugarlabs.FruitCut
 exec = sugar-activity-web
 icon = activity-icon

@@ -1,9 +1,9 @@
 [
 	{
-		"id": "org.sugarlabs.Tasklist",
-		"name": "Task List",
+		"id": "org.sugarlabs.FruitCut",
+		"name": "Fruit Cut",
 		"version": 1,
-		"directory": "activities/TaskList.activity",
+		"directory": "activities/FruitCut.activity",
 		"icon": "activity/activity-icon.svg",
 		"favorite": true,
 		"activityId": null
